@@ -187,7 +187,7 @@ export default {
 		vertical-align: middle;
 	}
 	.logo span{
-		margin-left: 40px;
+		/* margin-left: 30px; */
 		color: #fff;
 		font-weight: bolder;
 		letter-spacing: 1px;
