@@ -71,11 +71,6 @@ export default {
   border-radius: 0px;
   background: #393a3e;
 }
-.el-icon-arrow-up:before{
-}
-.el-input__icon{
-  /* width: 30px; */
-}
 .el-select .el-select--mini{
   margin-right: 10px;
 }
