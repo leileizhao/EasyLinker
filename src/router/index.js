@@ -11,66 +11,82 @@ import Footer from '@/components/footer'
 import Login from '@/components/login'
 import Register from '@/components/register'
 
-
-
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
-	  {
-  	 	path: '/',
+    {
+      path: '/',
       redirect: '/home',
+      meta: { title: '云易联CloudEasyLinker' },
       component: Home
-	  },
+    },
     {
       path: '/home',
       name: 'home',
-      component: Home//主页，产品服务
+      meta: { title: '云易联CloudEasyLinker' },
+      component: Home // 主页，产品服务
     },
     {
       path: '/header',
       name: 'header',
-      component: Header//头部
+      component: Header // 头部
     },
     {
       path: '/about_us',
       name: 'about_us',
-      component: AboutUs//关于我们
+      meta: { title: '关于我们 - 云易联CloudEasyLinker' },
+      component: AboutUs // 关于我们
     },
     {
       path: '/customer_case',
       name: 'customer_case',
-      component: CustomerCase//客户案例
+      meta: { title: '客户案例 - 云易联CloudEasyLinker' },
+      component: CustomerCase // 客户案例
     },
     {
       path: '/developer_community',
       name: 'developer_community',
-      component: DeveloperCommunity//开发者社区
+      meta: { title: '开发者社区 - 云易联CloudEasyLinker' },
+      component: DeveloperCommunity // 开发者社区
     },
     {
       path: '/development_platform',
       name: 'development_platform',
-      component: DeveloperPlatform//开发平台
+      meta: { title: '开发平台- 云易联CloudEasyLinker' },
+      component: DeveloperPlatform // 开发平台
     },
     {
       path: '/file',
       name: 'file',
-      component: File//文档
+      meta: { title: '文档 - 云易联CloudEasyLinker' },
+      component: File // 文档
     },
     {
       path: '/footer',
       name: 'footer',
-      component: Footer//文档
+      component: Footer // 文档
     },
     {
       path: '/login',
       name: 'login',
+      meta: { title: '登录 - 云易联CloudEasyLinker' },
       component: Login
     },
     {
       path: '/register',
       name: 'register',
+      meta: { title: '注册 - 云易联CloudEasyLinker' },
       component: Register
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
+
+export default router
